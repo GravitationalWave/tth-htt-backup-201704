@@ -41,6 +41,10 @@ def execute_command_on_cluster_node_spec():
             return False
 
 
+    # Check that wrapper log contains information about the RAM and CPU usage
+
+
+
     # Log RAM and CPU usage information
 
     m.log_ram_and_cpu_usage_information(

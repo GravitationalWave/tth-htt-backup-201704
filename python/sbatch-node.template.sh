@@ -105,6 +105,9 @@ run_wrapped_executable() {
 
     echo "End time is: `date`"
 
+    echo "Logging CPU and RAM usage"
+    sacct --long --jobs=$SLURM_JOB_ID
+
     return $EXIT_CODE
 }
 
