@@ -31,6 +31,4 @@ def executable_hadd_in_cluster_spec():
     if result_successful:
         print('PASSED: Executable for HADD in cluster is WORKING')
     else:
-        print('FAILED: Executable for HADD in cluster is NOT WORKING')
-
-    return result_successful
+        raise Exception('FAILED: Executable for HADD in cluster is NOT WORKING')

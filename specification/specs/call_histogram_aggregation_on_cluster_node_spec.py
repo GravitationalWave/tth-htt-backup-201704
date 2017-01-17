@@ -5,6 +5,7 @@ from tthAnalysis.HiggsToTauTau.jobTools import run_cmd
 from tthAnalysis.HiggsToTauTau.sbatchManager import sbatchManager
 
 from config import config
+import models
 
 def call_histogram_aggregation_on_cluster_node_spec():
 
@@ -41,6 +42,4 @@ def call_histogram_aggregation_on_cluster_node_spec():
     if result_successful:
         print('PASSED: HADD on cluster node worked')
     else:
-        print('FAILED: HADD on cluster node failed')
-
-    return result_successful
+        raise Exception('FAILED: HADD on cluster node failed')

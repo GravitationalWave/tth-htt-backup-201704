@@ -28,11 +28,7 @@ def check_that_histograms_are_equal_with_unequal_data():
     # Check result
 
     if result.find('ERROR: count(output_histogram.events) != count(input_histograms.events)') == -1:
-        print('Result must contain string "ERROR: count(output_histogram.events) != count(input_histograms.events)"')
-        return False
+        raise Exception('Result must contain string "ERROR: count(output_histogram.events) != count(input_histograms.events)"')
 
     if result.find('EXIT_STATUS_WAS: 1') == -1:
-        print('Exit status was not 1')
-        return False
-
-    return True
+        raise Exception('Exit status was not 1')

@@ -28,11 +28,7 @@ def check_that_histograms_are_equal_spec():
     # Check result
 
     if result.find('Output histogram event count is same as input histograms event counts sum') == -1:
-        print('Result must contain string "Output histogram event count is same as input histograms event counts sum"')
-        return False
+        raise Exception('Result must contain string "Output histogram event count is same as input histograms event counts sum"')
 
     if result.find('EXIT_STATUS_WAS: 0') == -1:
-        print('Exit status was not 0')
-        return False
-
-    return True
+        raise Exception('Exit status was not 0')

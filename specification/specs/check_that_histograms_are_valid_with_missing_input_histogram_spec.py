@@ -29,11 +29,7 @@ def check_that_histograms_are_valid_with_missing_input_histogram_spec():
     # Check result
 
     if result.find('ERROR: root input file is missing: %s' % missing_histogram) == -1:
-        print('Ouput must contain error information what file was missing')
-        return False
+        raise Exception('Ouput must contain error information what file was missing')
 
     if result.find('EXIT_STATUS_WAS: 1') == -1:
-        print('Exit status must be 1 if file was missing')
-        return False
-
-    return True
+        raise Exception('Exit status must be 1 if file was missing')

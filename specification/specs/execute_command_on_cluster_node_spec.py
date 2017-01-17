@@ -36,9 +36,7 @@ def execute_command_on_cluster_node_spec():
         result = f.read().strip()
 
         if result != 'Worked':
-            print("$TEST_DIR/ did not contain result.txt with content 'Worked'.")
-            print('FAILED: Execute on cluster node failed.')
-            return False
+            raise Exception('FAILED: $TEST_DIR/ did not contain result.txt with content "Worked".Execute on cluster node failed.')
 
 
     # Check that wrapper log contains information about the RAM and CPU usage
@@ -55,10 +53,6 @@ def execute_command_on_cluster_node_spec():
         result = f.read().strip()
 
         if result.find('MaxVMSize') == -1:
-            print("$TEST_DIR/ did not contain cpu_and_ram_info.log with content 'MaxVMSize'.")
-            print('FAILED: Execute on cluster node failed.')
-            return False
-
+            raise Exception("$TEST_DIR/ did not contain cpu_and_ram_info.log with content 'MaxVMSize'. Execute on cluster node failed.")
 
     print('PASSED: Execute on cluster node passed.')
-    return True

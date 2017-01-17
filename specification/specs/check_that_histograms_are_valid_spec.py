@@ -26,11 +26,7 @@ def check_that_histograms_are_valid_spec():
     # Check result
 
     if result.find('All input files are ok.') == -1:
-        print('Result must contain string "All input files are ok."')
-        return False
+        raise Exception('Result must contain string "All input files are ok."')
 
     if result.find('EXIT_STATUS_WAS: 0') == -1:
-        print('Exit status was not 0')
-        return False
-
-    return True
+        raise Exception('Exit status was not 0')
