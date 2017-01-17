@@ -20,5 +20,5 @@ class SpecRunner:
             self.fails[spec_name] = exception
 
     def print_summary(self):
-        print("Successful: %s, Failed: %s" % (len(self.successful), len(self.failed)))
+        print("Successful: %s, Failed: %s" % (len(self.successes), len(self.fails)))
         print(self.fails)
