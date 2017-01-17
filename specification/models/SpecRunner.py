@@ -1,19 +1,24 @@
 class SpecRunner:
 
-    def __init__(self):
-        self.failed = []
-        self.successful = []
+    def __init__(self, specs = []):
+        self.fails = {}
+        self.successes = []
 
-    def run_specs(self, specs):
-        for spec in specs:
-            self.run_spec(spec)
+        self.specs = specs
 
-    def run_spec(self, spec):
-        result = spec()
-        if result:
-            self.successful.append(spec)
-        else:
-            self.failed.append(spec)
+    def run_specs(self):
+        for spec_name, spec in self.specs:
+            self.run_spec(spec_name)
+
+    def run_spec(self, spec_name):
+        spec = self.specs[spec_name]
+
+        try:
+            result = spec()
+            self.successes.append(spec_name)
+        except Exception as exception:
+            self.fails[spec_name] = exception
 
     def print_summary(self):
         print("Successful: %s, Failed: %s" % (len(self.successful), len(self.failed)))
+        print(self.fails)
