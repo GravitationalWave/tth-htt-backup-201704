@@ -9,5 +9,5 @@ do
 
   cd $CMSSW_BASE/src/tthAnalysis/HiggsToTauTau/specification
   git pull
-  python run_specs.py > $HOME/tmp/summary.txt
+  python run_specs.py
 done
