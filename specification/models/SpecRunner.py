@@ -7,7 +7,7 @@ class SpecRunner:
         self.specs = specs
 
     def run_specs(self):
-        for spec_name, spec in self.specs:
+        for spec_name in self.specs:
             self.run_spec(spec_name)
 
     def run_spec(self, spec_name):
